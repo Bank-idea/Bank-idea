@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit an Idea – Idea Bank</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-lightbulb"></i>
+                <span>Idea Bank</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="submit-idea.html" class="nav-link active">Submit an Idea</a>
+                </li>
+              
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-header">
+                <h1>
+                    <i class="fas fa-plus-circle"></i>
+                  Submit a New Idea
+                </h1>
+                <p>Share your innovative idea with the team. Every suggestion matters!</p>
+            </div>
+
+            <div class="form-container">
+                <form id="ideaForm" class="idea-form">
+                    <div class="form-group">
+                        <label for="authorName">
+                            <i class="fas fa-user"></i>
+                          Your Name *
+                        </label>
+                        <input type="text" id="authorName" name="authorName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authorEmail">
+                            <i class="fas fa-envelope"></i>
+                            Your Email *
+                        </label>
+                        <input type="email" id="authorEmail" name="authorEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">
+                            <i class="fas fa-building"></i>
+                            Department
+                        </label>
+                        <select id="department" name="department">
+                            <option value="">Select your department</option>
+                            <option value="IT">IT</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="Marketing">Com</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Operations">Opérations</option>
+                            <option value="Sales">Ventes</option>
+                            <option value="Other">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ideaTitle">
+                            <i class="fas fa-lightbulb"></i>
+                            Idea Title *
+                        </label>
+                        <input type="text" id="ideaTitle" name="ideaTitle" required 
+                               placeholder="Ex: Application mobile de covoiturage interne">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ideaCategory">
+                            <i class="fas fa-tags"></i>
+                            Category
+                        </label>
+                        <select id="ideaCategory" name="ideaCategory">
+                            <option value="">Select a category</option>
+                            <option value="Process">Process</option>
+                            <option value="Workplace">Work Environment </option>
+                            <option value="Communication">Communication</option>
+                            <option value="Training">Training</option>
+                            <option value="Sustainability">Sustainable Development</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ideaDescription">
+                            <i class="fas fa-align-left"></i>
+                            Detailed Description *
+                        </label>
+                        <textarea id="ideaDescription" name="ideaDescription" required 
+                                  placeholder="Describe your idea in detail. Explain the problem it solves and how it could be implemented..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expectedBenefits">
+                            <i class="fas fa-chart-line"></i>
+                            Expected Benefits
+                        </label>
+                        <textarea id="expectedBenefits" name="expectedBenefits" 
+                                  placeholder="What are the expected benefits of this idea? (cost savings, improved efficiency, employee well-being, etc.)"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="implementationDifficulty">
+                            <i class="fas fa-cogs"></i>
+                            Implementation Difficulty
+                        </label>
+                        <select id="implementationDifficulty" name="implementationDifficulty">
+                            <option value="">Please rate the difficulty level.</option>
+                            <option value="Low">Low – Can be implemented quickly</option>
+                            <option value="Medium">Medium – Requires some resources</option>
+                            <option value="High">High – Complex, long-term project</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="willingToLead" name="willingToLead">
+                            <span class="checkmark"></span>
+                            I am willing to participate in the implementation of this idea.
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            <span class="checkmark"></span>
+                            I agree that my idea may be shared with the management team. *
+                        </label>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="resetForm()">
+                            <i class="fas fa-undo"></i>
+                            Reset
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Idea
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <div class="success-content">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Idea Submitted Successfully!</h3>
+                        <p>Thank you for your contribution. Your idea will be reviewed by our team.</p>
+                        <button onclick="hideSuccessMessage()" class="btn-primary">
+                            Submit Another Idea
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips Section -->
+            <div class="tips-section">
+                <h3><i class="fas fa-info-circle"></i> Tips for a Good Idea</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-target"></i>
+                        <h4>Be Specific</h4>
+                        <p>Clearly describe the problem and your proposed solution.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Think Impact</h4>
+                        <p>Explain how your idea will benefit the team or organization.</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Be Realistic</h4>
+                        <p>Propose feasible solutions with our current resources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Idea Bank</span>
+                    </div>
+                    <p>Collaborative innovation platform for our organization.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="submit-idea.html">Submit an Idea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@o-dcs.org</p>
+                    <p><i class="fas fa-phone"></i> +216 70 63 44 05</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Idea Bank. Tous droits réservés DCS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
