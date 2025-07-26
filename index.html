@@ -1,225 +1,268 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Idea Bank - Plateforme d'Innovation</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    .idea-of-week {
-      padding: 40px 20px;
-      background-color: #f7f7f7;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-size: 24px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .slider-container {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .slider {
-      position: relative;
-      height: auto;
-    }
-
-    .slide {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      transition: all 0.5s ease-in-out;
-    }
-
-    .slide.active {
-      display: block;
-      position: relative;
-    }
-
-    .slide-header h3 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    .slide-meta {
-      font-size: 14px;
-      color: gray;
-      margin-bottom: 10px;
-    }
-
-    .slide-description {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #222;
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
-    }
-
-    .prev-btn {
-      left: -10px;
-    }
-
-    .next-btn {
-      right: -10px;
-    }
-
-    .slider-indicators {
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .indicator {
-      height: 12px;
-      width: 12px;
-      background-color: #ccc;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0 5px;
-      cursor: pointer;
-    }
-
-    .indicator.active {
-      background-color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Bank - Plateforme d'Innovation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Idea of the Week Slider -->
-  <section class="idea-of-week">
-    <div class="container">
-      <h2 class="section-title">
-        <i class="fas fa-trophy"></i>
-        Idea of the Week
-      </h2>
-
-      <div class="slider-container">
-        <div class="slider">
-          <div class="slide active">
-            <div class="slide-content">
-              <div class="slide-header">
-                <h3>Projection-Débat – "For Sama" (Pour Sama)</h3>
-                <div class="slide-meta">
-                  <span class="author">By: Amira </span>
-                  <span class="date">Week of July 07-15, 2025</span>
-                </div>
-              </div>
-              <p class="slide-description">
-                Cette initiative vise à stimuler la réflexion collective autour des thématiques de la guerre, des droits humains, du courage des femmes et des familles en temps de crise, tout en encourageant l’empathie, l’ouverture d’esprit et l’humanité au sein de l’équipe.
-              </p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-lightbulb"></i>
+                <span>Idea Bank</span>
             </div>
-          </div>
-
-          <div class="slide">
-            <div class="slide-content">
-              <div class="slide-header">
-                <h3>Ciné Pause Collective</h3>
-                <div class="slide-meta">
-                  <span class="author">By: Iheb Ghrairi</span>
-                  <span class="date">Week of July 07-9, 2025</span>
-                </div>
-              </div>
-              <p class="slide-description">
-                Instaurer une pause cinéma hebdomadaire ouverte à toute l’équipe de DCS, où l’on regarde ensemble un court-métrage, un documentaire artistique, ou une œuvre audiovisuelle inspirante.
-              </p>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="submit-idea.html" class="nav-link">Submit an Idea</a>
+                </li>
+              
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-          </div>
-
-          <div class="slide">
-            <div class="slide-content">
-              <div class="slide-header">
-                <h3>Matrice d'analyse de risque</h3>
-                <div class="slide-meta">
-                  <span class="author">By: Jassem Belayadi</span>
-                  <span class="date">Week of June 06-25, 2025</span>
-                </div>
-              </div>
-              <p class="slide-description">
-                La matrice d’analyse de risque est un outil essentiel dans la gestion de projets, permettant d’identifier, d’évaluer et de hiérarchiser les risques potentiels.
-              </p>
-            </div>
-          </div>
         </div>
+    </nav>
 
-        <!-- Slider Navigation -->
-        <button class="slider-btn prev-btn" onclick="changeSlide(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="slider-btn next-btn" onclick="changeSlide(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-
-        <!-- Slider Indicators -->
-        <div class="slider-indicators">
-          <span class="indicator active" onclick="currentSlide(1)"></span>
-          <span class="indicator" onclick="currentSlide(2)"></span>
-          <span class="indicator" onclick="currentSlide(3)"></span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to DCS Idea Bank</h1>
+            <p>The innovation platform of our organization</p>
+            <a href="submit-idea.html" class="cta-button">
+                <i class="fas fa-plus"></i>
+                Submit an Idea
+            </a>
         </div>
-      </div>
+    </section>
+
+    <!-- Idea of the Week Slider -->
+    <section class="idea-of-week">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-trophy"></i>
+                Idea of the Week
+            </h2>
+            
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <h3>Projection-Débat – "For Sama" (Pour Sama)</h3>
+                                <div class="slide-meta">
+                                    <span class="author">By: Amira </span>
+                                    <span class="date">Week of July 07-15, 2025</span>
+                                </div>
+                            </div>
+                            <p class="slide-description">
+                               Cette initiative vise à stimuler la réflexion collective autour des thématiques de la guerre, des droits humains, du courage des femmes et des familles en temps de crise, tout en encourageant l’empathie, l’ouverture d’esprit et l’humanité au sein de l’équipe. Elle permettra également de créer un espace de dialogue autour des questions d’engagement social, de solidarité et de résilience, en cohérence avec les valeurs de l’organisation.
+                            </p>
+                            <div class="slide-stats">
+                              
+                            </div>
+                        </div>
+                    </div>
+                        <div class="slide">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <h3>Ciné Pause Collective</h3>
+                                <div class="slide-meta">
+                                    <span class="author">By:Iheb Ghrairi</span>
+                                    <span class="date">Week of July 07-9, 2025</span>
+                                </div>
+                            </div>
+                            <p class="slide-description">
+Instaurer une pause cinéma hebdomadaire ouverte à toute l’équipe de DCS, où l’on regarde ensemble un court-métrage, un documentaire artistique, ou une œuvre audiovisuelle inspirante. Cette activité vise à créer un espace collectif de détente, de stimulation culturelle, et de cohésion d’équipe.                            </p>
+                            <div class="slide-stats">
+                              
+                            </div>
+                        </div>
+                    </div>
+                        <div class="slide">
+                        <div class="slide-content">
+                            <div class="slide-header">
+                                <h3>Matrice d'analyse de risque</h3>
+                                <div class="slide-meta">
+                                    <span class="author">By:Jassem belayadi</span>
+                                    <span class="date">Week of June 06-25, 2025</span>
+                                </div>
+                            </div>
+                            <p class="slide-description">
+La matrice d’analyse de risque est un outil essentiel dans la gestion de projets, permettant d’identifier, d’évaluer et de hiérarchiser les risques potentiels. En croisant la probabilité d’occurrence d’un risque avec l’impact potentiel qu’il peut avoir sur un projet ou une activité.                            <div class="slide-stats">
+                              
+                            </div>
+                        </div>
+                    </div>
+
+
+                 
+
+                 
+                </div>
+
+                <!-- Slider Navigation -->
+                <button class="slider-btn prev-btn" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next-btn" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Slider Indicators -->
+                <div class="slider-indicators">
+                    <span class="indicator active" onclick="currentSlide(1)"></span>
+                    <span class="indicator" onclick="currentSlide(2)"></span>
+                    <span class="indicator" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="stat-number" data-target="14">14</div>
+                    <div class="stat-label">Submitted Ideas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="7">7</div>
+                    <div class="stat-label">Active Participants</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-number" data-target="4">4</div>
+                    <div class="stat-label">Implemented Ideas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-week"></i>
+                    </div>
+                    <div class="stat-number" data-target="4">4</div>
+                    <div class="stat-label">Active Weeks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="latest-news">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-newspaper"></i>
+                Our Latest News
+            </h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-header">
+                        <h3>نسيج لدعم المنظومة الحيوية</h3>
+                        <span class="news-date">July 2nd , 2025</span>
+                    </div>
+                    <p>We're excited to announce our new monthly innovation workshops designed to foster creativity and collaboration across all organisation.</p>
+                    <div class="news-footer">
+                        <span class="news-category">
+                            <i class="fas fa-tag"></i> Training
+                        </span>
+                        <button class="read-more" data-news="workshop">Read More</button>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-header">
+                        <h3>Q4 Innovation Awards Results</h3>
+                        <span class="news-date">January 10, 2025</span>
+                    </div>
+                    <p>Congratulations to all winners of our Q4 Innovation Awards! Discover the groundbreaking ideas that are shaping our future.</p>
+                    <div class="news-footer">
+                        <span class="news-category">
+                            <i class="fas fa-tag"></i> Awards
+                        </span>
+                        <button class="read-more" data-news="awards">Read More</button>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-header">
+                        <h3>New Collaboration Tools Available</h3>
+                        <span class="news-date">January 5, 2025</span>
+                    </div>
+                    <p>We've introduced new digital collaboration tools to help teams work more efficiently and bring their innovative ideas to life.</p>
+                    <div class="news-footer">
+                        <span class="news-category">
+                            <i class="fas fa-tag"></i> Technology
+                        </span>
+                        <button class="read-more" data-news="tools">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Modal -->
+    <div id="newsModal" class="news-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span id="modalDate"></span>
+                    <span id="modalCategory"></span>
+                </div>
+                <div id="modalContent"></div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <script>
-    let currentSlideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Idea Bank</span>
+                    </div>
+                    <p>Plateforme d'innovation collaborative pour notre organisation.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="submit-idea.html">Submit an Idea</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@o-dcs.org</p>
+                    <p><i class="fas fa-phone"></i> +216 70 63 44 05</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Idea Bank. Tous droits réservés a DCS.</p>
+            </div>
+        </div>
+    </footer>
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        indicators[i]?.classList.remove('active');
-      });
-      slides[index].classList.add('active');
-      indicators[index]?.classList.add('active');
-    }
-
-    function changeSlide(n) {
-      currentSlideIndex += n;
-      if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
-      if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
-      showSlide(currentSlideIndex);
-    }
-
-    function currentSlide(n) {
-      currentSlideIndex = n - 1;
-      showSlide(currentSlideIndex);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      showSlide(0);
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
